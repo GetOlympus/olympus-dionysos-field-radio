@@ -1,0 +1,4 @@
+# Main component
+radio:
+  title: Radio
+  no_options: The field does no have any options.
