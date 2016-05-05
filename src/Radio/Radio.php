@@ -2,8 +2,8 @@
 
 namespace GetOlympus\Field;
 
-use GetOlympus\Hera\Controllers\Field;
-use GetOlympus\Hera\Controllers\Translate;
+use GetOlympus\Hera\Field\Controller\Field;
+use GetOlympus\Hera\Translate\Controller\Translate;
 
 /**
  * Builds Radio field.
@@ -42,7 +42,7 @@ class Radio extends Field
         // Build defaults
         $defaults = [
             'id' => '',
-            'title' => Translate::t('radio.title'),
+            'title' => Translate::t('radio.title', [], 'radiofield'),
             'default' => '',
             'description' => '',
             'mode' => '',
@@ -54,7 +54,7 @@ class Radio extends Field
             'template' => 'pages',
 
             // texts
-            't_no_options' => Translate::t('radio.no_options'),
+            't_no_options' => Translate::t('radio.no_options', [], 'radiofield'),
         ];
 
         // Build defaults data
