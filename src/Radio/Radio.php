@@ -20,22 +20,20 @@ use GetOlympus\Hera\Translate\Controller\Translate;
 class Radio extends Field
 {
     /**
-     * @var string
+     * Prepare variables.
      */
-    protected $faIcon = 'fa-dot-circle-o';
-
-    /**
-     * @var string
-     */
-    protected $template = 'radio.html.twig';
+    protected function setVars()
+    {
+        $this->getModel()->setFaIcon('fa-dot-circle-o');
+        $this->getModel()->setStyle('css'.S.'radio.css');
+        $this->getModel()->setTemplate('radio.html.twig');
+    }
 
     /**
      * Prepare HTML component.
      *
      * @param array $content
      * @param array $details
-     *
-     * @since 0.0.1
      */
     protected function getVars($content, $details = [])
     {
@@ -48,11 +46,6 @@ class Radio extends Field
             'mode' => '',
             'options' => [],
 
-            // details
-            'post' => 0,
-            'prefix' => '',
-            'template' => 'pages',
-
             // texts
             't_no_options' => Translate::t('radio.no_options', [], 'radiofield'),
         ];
@@ -61,9 +54,9 @@ class Radio extends Field
         $vars = array_merge($defaults, $content);
 
         // Retrieve field value
-        $vars['val'] = $this->getValue($details, $vars['default'], $content['id'], true);
+        $vars['val'] = $this->getValue($content['id'], $details, $vars['default']);
 
         // Update vars
-        $this->getField()->setVars($vars);
+        $this->getModel()->setVars($vars);
     }
 }

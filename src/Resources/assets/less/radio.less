@@ -1,0 +1,64 @@
+/*!
+ * radio.less
+ *
+ * Copyright 2016 Achraf Chouk
+ * Achraf Chouk (https://github.com/crewstyle)
+ */
+
+@black: #000000;
+@white: #ffffff;
+@blue: #1297e0;
+
+.olh-field-content.radio {
+    p {
+        margin: 0 0 10px;
+    }
+
+    label {
+        background-color: @white;
+        border-left: 5px solid @blue;
+        display: block;
+        padding: 5px;
+        position: relative;
+
+        &.selected {
+            background-color: fade(@blue, 40%);
+            border-left-color: @blue;
+        }
+
+        &:hover {
+            background-color: @blue;
+        }
+    }
+
+    &.image {
+        input[type="radio"] {
+            left: 50%;
+            margin: -10px 0 0 -10px;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+        }
+
+        label {
+            span {
+                background-color: @white;
+                bottom: 3px;
+                color: @black;
+                left: 2px;
+                padding: 2px 7px 1px;
+                position: absolute;
+                z-index: 2;
+            }
+
+            &:hover span {
+                background-color: @blue;
+            }
+
+            &.selected span {
+                background-color: @blue;
+                color: @white;
+            }
+        }
+    }
+}

@@ -1,12 +1,10 @@
-{% set twigtpl = template and template == 'terms' ? 'terms' : 'pages' %}
-
-{% extends "@template/Layouts/Extends/" ~ twigtpl ~ ".html.twig" %}
+{% extends template_path %}
 
 {% block id %}{{ id }}_radio{% endblock %}
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olz-field-content radio{{ mode == 'image' ? ' image' : '' }}">
+    <div class="olh-field-content radio{{ mode == 'image' ? ' image' : '' }}">
         <fieldset>
             {% if options %}
                 {% set num = 0 %}
@@ -34,7 +32,9 @@
                 {{ t_no_options|raw }}
             {% endif %}
         </fieldset>
-
-        {% if description %}<p class="olz-description">{{ description|raw }}</p>{% endif %}
     </div>
+{% endblock %}
+
+{% block description %}
+    {{ description|raw }}
 {% endblock %}
