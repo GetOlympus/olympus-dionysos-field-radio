@@ -15,7 +15,7 @@
 
                     <p>
                         <label for="{{ for }}"{{ selected ? ' class="selected"' : '' }}>
-                            <input type="radio" name="{{ id }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
+                            <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
 
                             {% if mode == 'image' %}
                                 <img src="{{ k }}" alt="" />
