@@ -15,12 +15,14 @@
 
                     <p>
                         <label for="{{ for }}"{{ selected ? ' class="selected"' : '' }}>
-                            <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
-
                             {% if mode == 'image' %}
                                 <img src="{{ k }}" alt="" />
-                                <span>{{ option|raw }}</span>
+                                <span>
+                                    <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
+                                    {{ option|raw }}
+                                </span>
                             {% else %}
+                                <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
                                 {{ option|raw }}
                             {% endif %}
                         </label>
