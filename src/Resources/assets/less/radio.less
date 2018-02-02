@@ -32,6 +32,12 @@
     }
 
     &.image {
+        p {
+            display: inline-block;
+            vertical-align: bottom;
+            width: auto;
+        }
+
         input[type="radio"] {
             left: 50%;
             margin: -10px 0 0 -10px;
@@ -41,6 +47,8 @@
         }
 
         label {
+            border-left: 0;
+
             span {
                 background-color: @white;
                 bottom: 3px;
