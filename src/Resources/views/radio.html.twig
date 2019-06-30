@@ -1,39 +1,25 @@
 {% extends template_path %}
 
-{% block id %}{{ id }}_radio{% endblock %}
+{% block id %}{{ identifier }}{% endblock %}
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olh-field-content radio{{ mode == 'image' ? ' image' : '' }}">
-        <fieldset>
-            {% if options %}
-                {% set num = 0 %}
+    <div class="olz-field radio{{ mode == 'image' ? ' image' : '' }}">
+        <input type="hidden" name="{{ name }}" value="" />
 
-                {% for k, option in options if option %}
-                    {% set selected = k == val ? true : false %}
-                    {% set for = id ~ '_' ~ num %}
+        {% if options %}
+            {% set tpl = multiple ? 'checkbox' : 'radio' %}
 
-                    <p>
-                        <label for="{{ for }}"{{ selected ? ' class="selected"' : '' }}>
-                            {% if mode == 'image' %}
-                                <img src="{{ k }}" alt="" />
-                                <span>
-                                    <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
-                                    {{ option|raw }}
-                                </span>
-                            {% else %}
-                                <input type="radio" name="{{ name }}" id="{{ for }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
-                                {{ option|raw }}
-                            {% endif %}
-                        </label>
-                    </p>
-
-                    {% set num = num + 1 %}
-                {% endfor %}
-            {% else %}
-                {{ t_no_options|raw }}
-            {% endif %}
-        </fieldset>
+            {% include '@radio/tpl-' ~ tpl ~ '.html.twig' with {
+                'fieldname': name,
+                'identifier': identifier,
+                'mode': mode,
+                'options': options,
+                'value': value,
+            } only %}
+        {% else %}
+            {{ t_no_options|raw }}
+        {% endif %}
     </div>
 {% endblock %}
 

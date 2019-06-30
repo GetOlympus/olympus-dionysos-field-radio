@@ -9,37 +9,23 @@
 @white: #ffffff;
 @blue: #1297e0;
 
-.olh-field-content.radio {
-    p {
-        margin: 0 0 10px;
-    }
-
+.olz-field.radio {
     label {
-        background-color: @white;
-        border-left: 5px solid @blue;
-        display: block;
-        padding: 5px;
-        position: relative;
-
-        &.selected {
-            background-color: fade(@blue, 40%);
-            border-left-color: @blue;
-        }
-
-        &:hover {
-            background-color: @blue;
-        }
+        display: inline-block;
+        margin-right: 20px;
+        white-space: nowrap;
     }
 
     &.image {
-        p {
-            display: inline-block;
-            vertical-align: bottom;
-            width: auto;
-        }
-
         label {
-            border-left: 0;
+            margin-bottom: 5px;
+            position: relative;
+            width: 200px;
+
+            img {
+                height: auto;
+                max-width: 100%;
+            }
 
             span {
                 background-color: @white;
@@ -49,15 +35,6 @@
                 padding: 2px 7px 1px;
                 position: absolute;
                 z-index: 2;
-            }
-
-            &:hover span {
-                background-color: @blue;
-            }
-
-            &.selected span {
-                background-color: @blue;
-                color: @white;
             }
         }
     }

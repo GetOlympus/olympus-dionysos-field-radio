@@ -1,0 +1,6 @@
+/*!
+ * radio.less
+ *
+ * Copyright 2016 Achraf Chouk
+ * Achraf Chouk (https://github.com/crewstyle)
+ */.olz-field.radio label{display:inline-block;margin-right:20px;white-space:nowrap}.olz-field.radio.image label{margin-bottom:5px;position:relative;width:200px}.olz-field.radio.image label img{height:auto;max-width:100%}.olz-field.radio.image label span{background-color:#fff;bottom:3px;color:#000;left:2px;padding:2px 7px 1px;position:absolute;z-index:2}

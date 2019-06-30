@@ -1,0 +1,21 @@
+{% set num = 0 %}
+
+{% for k, option in options if option %}
+    {% set selected = value[k] is defined ? true : false %}
+    {% set id = identifier ~ '-' ~ num %}
+
+    <label for="{{ id }}">
+        {% if mode == 'image' %}
+            <img src="{{ k }}" alt="" />
+            <span>
+                <input type="checkbox" name="{{ fieldname }}[{{ k }}]" id="{{ id }}" value="1"{{ selected ? ' checked="checked"' : '' }} />
+                {{ option|raw }}
+            </span>
+        {% else %}
+            <input type="checkbox" name="{{ fieldname }}[{{ k }}]" id="{{ id }}" value="1"{{ selected ? ' checked="checked"' : '' }} />
+            {{ option|raw }}
+        {% endif %}
+    </label>
+
+    {% set num = num + 1 %}
+{% endfor %}

@@ -20,43 +20,58 @@ use GetOlympus\Zeus\Translate\Controller\Translate;
 class Radio extends Field
 {
     /**
-     * Prepare variables.
+     * @var string
      */
-    protected function setVars()
-    {
-        $this->getModel()->setFaIcon('fa-dot-circle-o');
-        $this->getModel()->setStyle('css'.S.'radio.css');
-        $this->getModel()->setTemplate('radio.html.twig');
-    }
+    protected $style = 'css'.S.'radio.css';
 
     /**
-     * Prepare HTML component.
-     *
-     * @param array $content
-     * @param array $details
+     * @var string
      */
-    protected function getVars($content, $details = [])
+    protected $template = 'radio.html.twig';
+
+    /**
+     * @var string
+     */
+    protected $textdomain = 'radiofield';
+
+    /**
+     * Prepare defaults.
+     *
+     * @return array
+     */
+    protected function getDefaults()
     {
-        // Build defaults
-        $defaults = [
-            'id' => '',
-            'title' => Translate::t('radio.title', [], 'radiofield'),
+        return [
+            'title' => Translate::t('radio.title', $this->textdomain),
             'default' => '',
             'description' => '',
             'mode' => '',
+            'multiple' => false,
             'options' => [],
 
             // texts
-            't_no_options' => Translate::t('radio.no_options', [], 'radiofield'),
+            't_no_options' => Translate::t('radio.errors.no_options', $this->textdomain),
         ];
+    }
 
-        // Build defaults data
-        $vars = array_merge($defaults, $content);
+    /**
+     * Prepare variables.
+     *
+     * @param  object  $value
+     * @param  array   $contents
+     *
+     * @return array
+     */
+    protected function getVars($value, $contents)
+    {
+        // Get contents
+        $vars = $contents;
 
-        // Retrieve field value
-        $vars['val'] = $this->getValue($content['id'], $details, $vars['default']);
+        // Mode
+        $vars['mode'] = isset($contents['mode']) ? $contents['mode'] : '';
+        $vars['mode'] = in_array($vars['mode'], ['default', 'image']) ? $vars['mode'] : 'default';
 
         // Update vars
-        $this->getModel()->setVars($vars);
+        return $vars;
     }
 }
