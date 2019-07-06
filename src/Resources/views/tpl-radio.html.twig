@@ -6,10 +6,10 @@
 
     <label for="{{ id }}">
         {% if mode == 'image' %}
-            <img src="{{ k }}" alt="" />
+            <img src="{{ option.image }}" alt="" />
             <span>
                 <input type="radio" name="{{ fieldname }}" id="{{ id }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />
-                {{ option|raw }}
+                {{ option.label|raw }}
             </span>
         {% else %}
             <input type="radio" name="{{ fieldname }}" id="{{ id }}" value="{{ k }}"{{ selected ? ' checked="checked"' : '' }} />

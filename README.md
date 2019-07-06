@@ -1,28 +1,213 @@
-# Radio Field ![For Olympus](https://img.shields.io/badge/for-Olympus-44cc11.svg?style=flat-square) ![For WordPress](https://img.shields.io/badge/for-WordPress-00aadc.svg?style=flat-square) ![CodeFactor grade](https://www.codefactor.io/repository/github/GetOlympus/olympus-radio-field/badge?style=flat-square)
+# Radio Field
+> This component is a part of the [**Olympus Zeus Core**][zeus-url] **WordPress** framework.
 
-_This component is a part of the [**Olympus Zeus Core**](https://github.com/GetOlympus/Zeus-Core) **WordPress** framework._  
+[![Olympus Component][olympus-image]][olympus-url]
+[![CodeFactor Grade][codefactor-image]][codefactor-url]
+[![Packagist Version][packagist-image]][packagist-url]
+
+## Installation
+
+Using `composer` in your PHP project:
+
+```sh
+composer install getolympus/olympus-radio-field
+```
+
+## Field initialization
+
+Use the following lines to add a `radio field` in your **WordPress** admin pages or custom post type meta fields:
+
+```php
+// Uniq choice version
+return \GetOlympus\Field\Radio::build('my_radio_field_id', [
+    'title'        => 'Select a Minion that you may know',
+    'default'      => 'kevin',
+    'description'  => 'A very important question! Pay attention to it ;)',
+    'mode'         => 'default',
+    'multiple'     => false,
+    'options'      => [
+        'kevin'     => 'Kevin',
+        'mel'       => 'Mel',
+        'dave'      => 'Dave',
+        'bob'       => 'Bob',
+    ],
+
+    /**
+     * Texts definitions
+     * @see the `Texts definitions` section below
+     */
+    't_no_options' => 'The field does no have any options.',
+]);
+
+// Multiple choice version
+return \GetOlympus\Field\Radio::build('my_checkbox_field_id', [
+    'title'        => 'What are your preferred personas?',
+    'default'      => ['minions', 'lapinscretins'],
+    'description'  => 'The White House needs your feedback asap!',
+    'mode'         => 'default',
+    'multiple'     => true,
+    'options'      => [
+        'minions'       => 'The Minions',
+        'lapinscretins' => 'The Lapins Crétins',
+        'marvel'        => 'All Marvel Superheroes',
+        'franklin'      => 'Franklin (everything is possible)',
+        'spongebob'     => 'Spongebob (nothing to say... Love it!)',
+    ],
+
+    /**
+     * Texts definitions
+     * @see the `Texts definitions` section below
+     */
+    't_no_options' => 'The field does no have any options.',
+]);
+```
+
+## Variables definitions
+
+The variable definition depends on `multiple` value:
+- set to `false`, a uniq string value is stored in Database
+- set to `true`, an array of key values is stored in Database
+
+The display depends on `mode` value:
+- set to `default`, template will show a radio button (or checkbox) with text label
+- set to `image`, template will use the key items options to display an image with overlay text label
+
+In all cases:
+
+| Variable      | Type    | Default value if not set | Accepted values |
+| ------------- | ------- | ------------------------ | --------------- |
+| `title`       | String  | `'Radio button'` | *empty* |
+| `description` | String  | *empty* | *empty* |
+| `mode`        | String  | `default` | `default` or `image` |
+| `options`     | Array   | *empty* | Array with a key/value options |
+
+### Uniq choice
+
+| Variable      | Type    | Default value if not set | Accepted values |
+| ------------- | ------- | ------------------------ | --------------- |
+| `default`     | String  | *empty string* | One of the options keys |
+| `multiple`    | Boolean | `false` | *nothing else* |
+
+### Multiple choices
+
+| Variable      | Type    | Default value if not set | Accepted values |
+| ------------- | ------- | ------------------------ | --------------- |
+| `default`     | String  | *empty array* | Array with options keys |
+| `multiple`    | Boolean | `true` | *nothing else* |
+
+## Texts definitions
+
+| Code | Default value | Definition |
+| ---- | ------------- | ---------- |
+| `t_no_options` | The field does no have any options. | Used as a add link label button |
+
+## Retrive data
+
+Retrieve your value from Database with a simple `get_option('my_radio_field_id', '')` or `get_option('my_checkbox_field_id', [])` (see [WordPress reference][getoption-url]):
+
+```php
+// Get radio from Database
+$radio = get_option('my_radio_field_id', '');
+
+// Display value
+echo '<h2><b>'.$radio.'</b>, master of the ceremony</h2>';
+
+// Get checkboxes from Database
+$checkbox = get_option('my_checkbox_field_id', []);
+
+if (!empty($checkbox)) {
+    echo '<p>And the nominees are:</p>';
+    echo '<ul>';
+
+    foreach ($checkbox as $value) {
+        echo '<li>'.$value.'</li>'; // Will display key item options!
+    }
+
+    echo '</ul>';
+}
+```
+
+## Image mode
+
+Ti display images instead of simple labels, set the `mode` to `image` and build the field as follow:
+
+```php
+// Uniq choice version
+return \GetOlympus\Field\Radio::build('my_radio_field_id', [
+    'title'        => 'Select a Minion that you may know',
+    'default'      => 'dave',
+    'description'  => 'A very important question! Pay attention to it ;)',
+    'mode'         => 'image',
+    'multiple'     => false,
+    'options'      => [
+        'kevin'     => [
+            'label' => 'Kevin',
+            'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/1/1d/Kevin_minions.png/revision/latest/scale-to-width-down/350?cb=20170703052012',
+        ],
+        'mel'       => [
+            'label' => 'Mel',
+            'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/2/2e/Mel_Minion_01.png/revision/latest/scale-to-width-down/350?cb=20160717135212',
+        ],
+        'dave'      => [
+            'label' => 'Dave',
+            'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/7/71/Daveholdingcupcake.png/revision/latest/scale-to-width-down/350?cb=20130717145735',
+        ],
+        'bob'       => [
+            'label' => 'Bob',
+            'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/c/ca/Bob-from-the-minions-movie.jpg/revision/latest/scale-to-width-down/350?cb=20151224154354',
+        ],
+    ],
+
+    /**
+     * Texts definitions
+     * @see the `Texts definitions` section below
+     */
+    't_no_options' => 'The field does no have any options.',
+]);
+```
+
+## Release History
+
+* 0.0.11
+- [x] ADD: a better image mode integration in PHP code and Twig template
+
+* 0.0.10
+- [x] ADD: new version compatible with Zeus-Core latest version
+
+## Authors and Copyright
+
+Achraf Chouk  
+[![@crewstyle][twitter-image]][twitter-url]
+
+Please, read [LICENSE][license-blob] for more information.  
+[![MIT][license-image]][license-url]
+
+[https://github.com/crewstyle](https://github.com/crewstyle)  
+[http://fr.linkedin.com/in/achrafchouk](http://fr.linkedin.com/in/achrafchouk)
+
+## Contributing
+
+1. Fork it (<https://github.com/GetOlympus/olympus-radio-field/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
 
 ---
 
-### Resources
+**Built with ♥ by [Achraf Chouk](http://github.com/crewstyle "Achraf Chouk") ~ (c) since a long time.**
 
-  + [Documentation](https://olympus.readme.io/v1.0/docs/radio-field)
-  + [Report issues](https://github.com/GetOlympus/olympus-radio-field/issues)
-  + [Olympus Zeus Core](https://github.com/GetOlympus/Zeus-Core)
-
----
-
-### Authors and Copyright
-
-**Achraf Chouk**
-
-+ http://fr.linkedin.com/in/achrafchouk/
-+ http://twitter.com/crewstyle
-+ http://github.com/crewstyle
-
-Please, read [LICENSE](https://github.com/GetOlympus/olympus-radio-field/blob/master/LICENSE "LICENSE") for more details.  
-[![MIT](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat-square)](http://opensource.org/licenses/MIT "MIT")  
-
----
-
-**Built with ♥ by [Achraf Chouk](http://github.com/crewstyle "Achraf Chouk") ~ (c) since 2016.**
+<!-- links & imgs dfn's -->
+[olympus-image]: https://img.shields.io/badge/for-Olympus-44cc11.svg?style=flat-square
+[olympus-url]: https://github.com/GetOlympus
+[zeus-url]: https://github.com/GetOlympus/Zeus-Core
+[codefactor-image]: https://www.codefactor.io/repository/github/GetOlympus/olympus-radio-field/badge?style=flat-square
+[codefactor-url]: https://www.codefactor.io/repository/github/getolympus/olympus-radio-field
+[getoption-url]: https://developer.wordpress.org/reference/functions/get_option/
+[license-blob]: https://github.com/GetOlympus/olympus-radio-field/blob/master/LICENSE
+[license-image]: https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat-square
+[license-url]: http://opensource.org/licenses/MIT
+[packagist-image]: https://img.shields.io/packagist/v/getolympus/olympus-radio-field.svg?style=flat-square
+[packagist-url]: https://packagist.org/packages/getolympus/olympus-radio-field
+[twitter-image]: https://img.shields.io/badge/crewstyle-blue.svg?style=social&logo=twitter
+[twitter-url]: http://twitter.com/crewstyle
