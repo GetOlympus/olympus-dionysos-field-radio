@@ -33,12 +33,14 @@ return \GetOlympus\Field\Radio::build('my_radio_field_id', [
     ],
 
     /**
-     * Texts definitions
-     * @see the `Texts definitions` section below
+     * Texts definition
+     * @see the `Texts definition` section below
      */
     't_no_options' => 'The field does no have any options.',
 ]);
+```
 
+```php
 // Multiple choice version
 return \GetOlympus\Field\Radio::build('my_checkbox_field_id', [
     'title'        => 'What are your preferred personas?',
@@ -55,24 +57,24 @@ return \GetOlympus\Field\Radio::build('my_checkbox_field_id', [
     ],
 
     /**
-     * Texts definitions
-     * @see the `Texts definitions` section below
+     * Texts definition
+     * @see the `Texts definition` section below
      */
     't_no_options' => 'The field does no have any options.',
 ]);
 ```
 
-## Variables definitions
+## Variables definition
 
-The variable definition depends on `multiple` value:
+The variables definition depends on `multiple` value:
 - set to `false`, a uniq string value is stored in Database
 - set to `true`, an array of key values is stored in Database
 
-The display depends on `mode` value:
+The field display depends on `mode` value:
 - set to `default`, template will show a radio button (or checkbox) with text label
 - set to `image`, template will use the key items options to display an image with overlay text label
 
-In all cases:
+### In all cases
 
 | Variable      | Type    | Default value if not set | Accepted values |
 | ------------- | ------- | ------------------------ | --------------- |
@@ -95,11 +97,11 @@ In all cases:
 | `default`     | String  | *empty array* | Array with options keys |
 | `multiple`    | Boolean | `true` | *nothing else* |
 
-## Texts definitions
+## Texts definition
 
 | Code | Default value | Definition |
 | ---- | ------------- | ---------- |
-| `t_no_options` | The field does no have any options. | Used as a add link label button |
+| `t_no_options` | The field does no have any options. | Used as an error in the case no options have been set |
 
 ## Retrive data
 
@@ -112,7 +114,7 @@ $radio = get_option('my_radio_field_id', '');
 // Display value
 echo '<h2><b>'.$radio.'</b>, master of the ceremony</h2>';
 
-// Get checkboxes from Database
+// Get checkbox from Database
 $checkbox = get_option('my_checkbox_field_id', []);
 
 if (!empty($checkbox)) {
@@ -129,10 +131,20 @@ if (!empty($checkbox)) {
 
 ## Image mode
 
-Ti display images instead of simple labels, set the `mode` to `image` and build the field as follow:
+To display images instead of simple labels, set the `mode` to `image` and build the field's options as follow:
 
 ```php
-// Uniq choice version
+$options = [
+    'key-name' => [
+        'label' => 'Label item',
+        'image' => 'https://label-image-url',
+    ],
+];
+```
+
+Below, a full example:
+
+```php
 return \GetOlympus\Field\Radio::build('my_radio_field_id', [
     'title'        => 'Select a Minion that you may know',
     'default'      => 'dave',
