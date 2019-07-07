@@ -8,15 +8,29 @@
         <input type="hidden" name="{{ name }}" value="" />
 
         {% if options %}
-            {% set tpl = multiple ? 'checkbox' : 'radio' %}
+            {% set num = 0 %}
+            {% set square = multiple ? '[]' : '' %}
+            {% set type = multiple ? 'checkbox' : 'radio' %}
 
-            {% include '@radio/tpl-' ~ tpl ~ '.html.twig' with {
-                'fieldname': name,
-                'identifier': identifier,
-                'mode': mode,
-                'options': options,
-                'value': value,
-            } only %}
+            {% for k, option in options if option %}
+                {% set id = identifier ~ '-' ~ num %}
+                {% set selected = k in value ? ' checked="checked"' : '' %}
+
+                <label for="{{ id }}">
+                    {% if mode == 'image' %}
+                        <img src="{{ option.image }}" alt="" />
+                        <span>
+                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                            {{ option.label|raw }}
+                        </span>
+                    {% else %}
+                        <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                        {{ option|raw }}
+                    {% endif %}
+                </label>
+
+                {% set num = num + 1 %}
+            {% endfor %}
         {% else %}
             {{ t_no_options|raw }}
         {% endif %}

@@ -65,8 +65,11 @@ class Radio extends Field
         // Get contents
         $vars = $contents;
 
+        // Update value
+        $vars['value'] = !is_array($value) ? [$value] : $value;
+
         // Mode
-        $vars['mode'] = isset($contents['mode']) ? $contents['mode'] : '';
+        $vars['mode'] = isset($vars['mode']) ? $vars['mode'] : '';
         $vars['mode'] = in_array($vars['mode'], ['default', 'image']) ? $vars['mode'] : 'default';
 
         // Update vars

@@ -94,7 +94,7 @@ The field display depends on `mode` value:
 
 | Variable      | Type    | Default value if not set | Accepted values |
 | ------------- | ------- | ------------------------ | --------------- |
-| `default`     | String  | *empty array* | Array with options keys |
+| `default`     | Array   | *empty array* | Array with options keys |
 | `multiple`    | Boolean | `true` | *nothing else* |
 
 ## Texts definition
@@ -179,6 +179,9 @@ return \GetOlympus\Field\Radio::build('my_radio_field_id', [
 ```
 
 ## Release History
+
+* 0.0.12
+- [x] FIX: enhance display with an easier twig template
 
 * 0.0.11
 - [x] ADD: a better image mode integration in PHP code and Twig template
