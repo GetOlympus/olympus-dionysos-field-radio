@@ -86,7 +86,7 @@ The field display depends on `mode` value:
 | ------------- | ------- | ------------------------ | --------------- |
 | `title`       | String  | `'Radio button'` | *empty* |
 | `description` | String  | *empty* | *empty* |
-| `mode`        | String  | `default` | `default` or `image` |
+| `mode`        | String  | `default` | see [Variables definition](#variables-definition) |
 | `options`     | Array   | *empty* | Array with a key/value options |
 
 ### Uniq choice
