@@ -24,16 +24,16 @@ Use the following lines to add a `radio field` in your **WordPress** admin pages
 ```php
 // Uniq choice version
 return \GetOlympus\Field\Radio::build('my_radio_field_id', [
-    'title'        => 'Select a Minion that you may know',
-    'default'      => 'kevin',
-    'description'  => 'A very important question! Pay attention to it ;)',
-    'mode'         => 'default',
-    'multiple'     => false,
-    'options'      => [
-        'kevin'     => 'Kevin',
-        'mel'       => 'Mel',
-        'dave'      => 'Dave',
-        'bob'       => 'Bob',
+    'title'       => 'Select a Minion that you may know',
+    'default'     => 'kevin',
+    'description' => 'A very important question! Pay attention to it ;)',
+    'mode'        => 'default',
+    'multiple'    => false,
+    'options'     => [
+        'kevin' => 'Kevin',
+        'mel'   => 'Mel',
+        'dave'  => 'Dave',
+        'bob'   => 'Bob',
     ],
 
     /**
@@ -47,12 +47,12 @@ return \GetOlympus\Field\Radio::build('my_radio_field_id', [
 ```php
 // Multiple choice version
 return \GetOlympus\Field\Radio::build('my_checkbox_field_id', [
-    'title'        => 'What are your preferred personas?',
-    'default'      => ['minions', 'lapinscretins'],
-    'description'  => 'The White House needs your feedback asap!',
-    'mode'         => 'default',
-    'multiple'     => true,
-    'options'      => [
+    'title'       => 'What are your preferred personas?',
+    'default'     => ['minions', 'lapinscretins'],
+    'description' => 'The White House needs your feedback asap!',
+    'mode'        => 'default',
+    'multiple'    => true,
+    'options'     => [
         'minions'       => 'The Minions',
         'lapinscretins' => 'The Lapins Crétins',
         'marvel'        => 'All Marvel Superheroes',
@@ -150,25 +150,25 @@ Below, a full example:
 
 ```php
 return \GetOlympus\Field\Radio::build('my_radio_field_id', [
-    'title'        => 'Select a Minion that you may know',
-    'default'      => 'dave',
-    'description'  => 'A very important question! Pay attention to it ;)',
-    'mode'         => 'image',
-    'multiple'     => false,
-    'options'      => [
-        'kevin'     => [
+    'title'       => 'Select a Minion that you may know',
+    'default'     => 'dave',
+    'description' => 'A very important question! Pay attention to it ;)',
+    'mode'        => 'image',
+    'multiple'    => false,
+    'options'     => [
+        'kevin' => [
             'label' => 'Kevin',
             'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/1/1d/Kevin_minions.png/revision/latest/scale-to-width-down/350?cb=20170703052012',
         ],
-        'mel'       => [
+        'mel'   => [
             'label' => 'Mel',
             'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/2/2e/Mel_Minion_01.png/revision/latest/scale-to-width-down/350?cb=20160717135212',
         ],
-        'dave'      => [
+        'dave'  => [
             'label' => 'Dave',
             'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/7/71/Daveholdingcupcake.png/revision/latest/scale-to-width-down/350?cb=20130717145735',
         ],
-        'bob'       => [
+        'bob'   => [
             'label' => 'Bob',
             'image' => 'https://vignette.wikia.nocookie.net/despicableme/images/c/ca/Bob-from-the-minions-movie.jpg/revision/latest/scale-to-width-down/350?cb=20151224154354',
         ],
