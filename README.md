@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://img.icons8.com/nolan/2x/checklist.png">
+</p>
+
 # Radio Field
 > This component is a part of the [**Olympus Zeus Core**][zeus-url] **WordPress** framework.
 
@@ -10,7 +14,7 @@
 Using `composer` in your PHP project:
 
 ```sh
-composer install getolympus/olympus-radio-field
+composer require getolympus/olympus-radio-field
 ```
 
 ## Field initialization
@@ -180,14 +184,14 @@ return \GetOlympus\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
+* 0.0.14
+- [x] FIX: remove twig dependency from composer
+
+* 0.0.13
+- [x] FIX: remove zeus-core dependency from composer
+
 * 0.0.12
 - [x] FIX: enhance display with an easier twig template
-
-* 0.0.11
-- [x] ADD: a better image mode integration in PHP code and Twig template
-
-* 0.0.10
-- [x] ADD: new version compatible with Zeus-Core latest version
 
 ## Authors and Copyright
 
@@ -197,8 +201,8 @@ Achraf Chouk
 Please, read [LICENSE][license-blob] for more information.  
 [![MIT][license-image]][license-url]
 
-[https://github.com/crewstyle](https://github.com/crewstyle)  
-[http://fr.linkedin.com/in/achrafchouk](http://fr.linkedin.com/in/achrafchouk)
+<https://github.com/crewstyle>  
+<https://fr.linkedin.com/in/achrafchouk>
 
 ## Contributing
 
