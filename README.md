@@ -75,8 +75,10 @@ The variables definition depends on `multiple` value:
 - set to `true`, an array of key values is stored in Database
 
 The field display depends on `mode` value:
-- set to `default`, template will show a radio button (or checkbox) with text label
-- set to `image`, template will use the key items options to display an image with overlay text label
+- set to `default` (or `inline`), labels options will be displayed on the same line, as an `inline-block` display
+- set to `block`, labels options will be displayed each per line, as a `block` display
+- set to `image`, labels options will be displayed as `default` mode, with images and overlay text label
+- set to `image-block`, labels options will be displayed as `block` mode, with images and overlay text label
 
 ### In all cases
 
@@ -184,14 +186,14 @@ return \GetOlympus\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
+* 0.0.15
+- [x] ADD: new display mode
+
 * 0.0.14
 - [x] FIX: remove twig dependency from composer
 
 * 0.0.13
 - [x] FIX: remove zeus-core dependency from composer
-
-* 0.0.12
-- [x] FIX: enhance display with an easier twig template
 
 ## Authors and Copyright
 

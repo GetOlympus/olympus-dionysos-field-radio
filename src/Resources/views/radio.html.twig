@@ -4,7 +4,7 @@
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olz-field radio{{ mode == 'image' ? ' image' : '' }}">
+    <div class="olz-field radio{{ mode == 'default' ? '' : ' ' ~ mode }}">
         <input type="hidden" name="{{ name }}" value="" />
 
         {% if options %}
@@ -17,7 +17,7 @@
                 {% set selected = k in value ? ' checked="checked"' : '' %}
 
                 <label for="{{ id }}">
-                    {% if mode == 'image' %}
+                    {% if mode in ['image', 'image-block'] %}
                         <img src="{{ option.image }}" alt="" />
                         <span>
                             <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />

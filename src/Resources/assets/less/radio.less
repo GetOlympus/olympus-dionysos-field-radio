@@ -7,7 +7,6 @@
 
 @black: #000000;
 @white: #ffffff;
-@blue: #1297e0;
 
 .olz-field.radio {
     label {
@@ -16,7 +15,8 @@
         white-space: nowrap;
     }
 
-    &.image {
+    &.image,
+    &.image-block {
         label {
             margin-bottom: 5px;
             position: relative;
@@ -38,6 +38,14 @@
                 position: absolute;
                 z-index: 2;
             }
+        }
+    }
+
+    &.block,
+    &.image-block {
+        label {
+            display: block;
+            margin: 0 0 10px;
         }
     }
 }
