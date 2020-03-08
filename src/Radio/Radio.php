@@ -7,10 +7,10 @@ use GetOlympus\Zeus\Field\Field;
 /**
  * Builds Radio field.
  *
- * @package DionysosField
+ * @package    DionysosField
  * @subpackage Radio
- * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 0.0.1
+ * @author     Achraf Chouk <achrafchouk@gmail.com>
+ * @since      0.0.1
  *
  */
 
