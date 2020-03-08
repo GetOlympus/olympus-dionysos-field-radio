@@ -1,9 +1,8 @@
 <?php
 
-namespace GetOlympus\Field;
+namespace GetOlympus\Dionysos\Field;
 
 use GetOlympus\Zeus\Field\Field;
-use GetOlympus\Zeus\Utils\Translate;
 
 /**
  * Builds Radio field.
@@ -40,7 +39,7 @@ class Radio extends Field
     protected function getDefaults() : array
     {
         return [
-            'title' => Translate::t('radio.title', $this->textdomain),
+            'title' => parent::t('radio.title', $this->textdomain),
             'default' => '',
             'description' => '',
             'mode' => '',
@@ -48,7 +47,7 @@ class Radio extends Field
             'options' => [],
 
             // texts
-            't_no_options' => Translate::t('radio.errors.no_options', $this->textdomain),
+            't_no_options' => parent::t('radio.errors.no_options', $this->textdomain),
         ];
     }
 

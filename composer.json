@@ -1,9 +1,9 @@
 {
-  "name": "getolympus/olympus-radio-field",
+  "name": "getolympus/olympus-dionysos-field-radio",
   "type": "olympus-field",
-  "description": "Radio / Checkbox field, this component is a part of the Olympus Zeus Core framework.",
-  "keywords": ["olympus-zeus", "radio", "field", "custom", "checkbox", "framework", "php", "wordpress"],
-  "homepage": "https://github.com/GetOlympus/olympus-radio-field",
+  "description": "Radio / Checkbox field, this component is a part of the Olympus Dionysos fields.",
+  "keywords": ["olympus", "dionysos", "radio", "field", "custom", "checkbox", "framework", "php", "wordpress"],
+  "homepage": "https://github.com/GetOlympus/olympus-dionysos-field-radio",
   "license": "MIT",
   "authors": [
     {
@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "GetOlympus\\Field\\": "src/Radio/"
+      "GetOlympus\\Dionysos\\Field\\": "src/Radio/"
     }
   },
   "extra": {
