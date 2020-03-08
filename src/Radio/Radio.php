@@ -1,14 +1,13 @@
 <?php
 
-namespace GetOlympus\Field;
+namespace GetOlympus\Dionysos\Field;
 
-use GetOlympus\Zeus\Field\Controller\Field;
-use GetOlympus\Zeus\Translate\Controller\Translate;
+use GetOlympus\Zeus\Field\Field;
 
 /**
  * Builds Radio field.
  *
- * @package Field
+ * @package DionysosField
  * @subpackage Radio
  * @author Achraf Chouk <achrafchouk@gmail.com>
  * @since 0.0.1
@@ -37,10 +36,10 @@ class Radio extends Field
      *
      * @return array
      */
-    protected function getDefaults()
+    protected function getDefaults() : array
     {
         return [
-            'title' => Translate::t('radio.title', $this->textdomain),
+            'title' => parent::t('radio.title', $this->textdomain),
             'default' => '',
             'description' => '',
             'mode' => '',
@@ -48,7 +47,7 @@ class Radio extends Field
             'options' => [],
 
             // texts
-            't_no_options' => Translate::t('radio.errors.no_options', $this->textdomain),
+            't_no_options' => parent::t('radio.errors.no_options', $this->textdomain),
         ];
     }
 
@@ -60,7 +59,7 @@ class Radio extends Field
      *
      * @return array
      */
-    protected function getVars($value, $contents)
+    protected function getVars($value, $contents) : array
     {
         // Available mode display: "inline" === "default"
         $modes = ['default', 'block', 'image', 'image-block', 'inline'];
