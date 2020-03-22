@@ -1,17 +1,24 @@
 # Dionysos Radio Field
 > This component is a part of the **Olympus Dionysos fields** for **WordPress**.
 
-[![Olympus Component][olympus-image]][olympus-url]
-[![CodeFactor Grade][codefactor-image]][codefactor-url]
-[![Packagist Version][packagist-image]][packagist-url]
-
 ```sh
 composer require getolympus/olympus-dionysos-field-radio
 ```
 
+---
+
+[![Olympus Component][olympus-image]][olympus-url]
+[![CodeFactor Grade][codefactor-image]][codefactor-url]
+[![Packagist Version][packagist-image]][packagist-url]
+[![MIT][license-image]][license-blob]
+
+---
+
 <p align="center">
     <img src="https://github.com/GetOlympus/olympus-dionysos-field-radio/blob/master/assets/field-radio-64.png" />
 </p>
+
+---
 
 ## Field initialization
 
@@ -192,17 +199,6 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 0.0.14
 - FIX: remove twig dependency from composer
 
-## Authors and Copyright
-
-Achraf Chouk  
-[![@crewstyle][twitter-image]][twitter-url]
-
-Please, read [LICENSE][license-blob] for more information.  
-[![MIT][license-image]][license-url]
-
-<https://github.com/crewstyle>  
-<https://fr.linkedin.com/in/achrafchouk>
-
 ## Contributing
 
 1. Fork it (<https://github.com/GetOlympus/olympus-dionysos-field-radio/fork>)
@@ -223,8 +219,5 @@ Please, read [LICENSE][license-blob] for more information.
 [getoption-url]: https://developer.wordpress.org/reference/functions/get_option/
 [license-blob]: https://github.com/GetOlympus/olympus-dionysos-field-radio/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat-square
-[license-url]: http://opensource.org/licenses/MIT
 [packagist-image]: https://img.shields.io/packagist/v/getolympus/olympus-dionysos-field-radio.svg?style=flat-square
 [packagist-url]: https://packagist.org/packages/getolympus/olympus-dionysos-field-radio
-[twitter-image]: https://img.shields.io/badge/crewstyle-blue.svg?style=social&logo=twitter
-[twitter-url]: https://twitter.com/crewstyle
