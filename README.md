@@ -82,6 +82,7 @@ The field display depends on `mode` value:
 - set to `block`, labels options will be displayed each per line, as a `block` display
 - set to `image`, labels options will be displayed as `default` mode, with images and overlay text label
 - set to `image-block`, labels options will be displayed as `block` mode, with images and overlay text label
+- set to `group`, labels options will be displayed as a simple but efficient group of choices
 
 ### In all cases
 
@@ -189,15 +190,15 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
+0.0.17
+- Add group mode with native WordPress display
+
 0.0.16
 - New Olympus components compatibility
 - Change repository to be a part of Dionysos fields
 
 0.0.15
 - ADD: new display mode
-
-0.0.14
-- FIX: remove twig dependency from composer
 
 ## Contributing
 

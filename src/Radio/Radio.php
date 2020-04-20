@@ -62,7 +62,7 @@ class Radio extends Field
     protected function getVars($value, $contents) : array
     {
         // Available mode display: "inline" === "default"
-        $modes = ['default', 'block', 'image', 'image-block', 'inline'];
+        $modes = ['default', 'block', 'group', 'image', 'image-block', 'inline'];
 
         // Get contents
         $vars = $contents;

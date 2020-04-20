@@ -4,7 +4,7 @@
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olz-field radio{{ mode == 'default' ? '' : ' ' ~ mode }}">
+    <div class="olz-field radio {{ mode }}">
         <input type="hidden" name="{{ name }}" value="" />
 
         {% if options %}
@@ -12,25 +12,36 @@
             {% set square = multiple ? '[]' : '' %}
             {% set type = multiple ? 'checkbox' : 'radio' %}
 
+            {{ mode == 'group' ? '<div class="group-labels">' : '' }}
+
             {% for k, option in options if option %}
                 {% set id = identifier ~ '-' ~ num %}
                 {% set selected = k in value ? ' checked="checked"' : '' %}
 
-                <label for="{{ id }}">
-                    {% if mode in ['image', 'image-block'] %}
-                        <img src="{{ option.image }}" alt="" />
-                        <span>
-                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
-                            {{ option.label|raw }}
-                        </span>
-                    {% else %}
+                {% if mode == 'group' %}
+                    <div>
                         <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
-                        {{ option|raw }}
-                    {% endif %}
-                </label>
+                        <label for="{{ id }}">{{ option|raw }}</label>
+                    </div>
+                {% else %}
+                    <label for="{{ id }}">
+                        {% if mode in ['image', 'image-block'] %}
+                            <img src="{{ option.image }}" alt="" />
+                            <span>
+                                <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                                {{ option.label|raw }}
+                            </span>
+                        {% else %}
+                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                            {{ option|raw }}
+                        {% endif %}
+                    </label>
+                {% endif %}
 
                 {% set num = num + 1 %}
             {% endfor %}
+
+            {{ mode == 'group' ? '</div>' : '' }}
         {% else %}
             {{ t_no_options|raw }}
         {% endif %}
