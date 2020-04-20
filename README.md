@@ -190,15 +190,15 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
+0.0.18
+- Fix image label display for small images
+
 0.0.17
 - Add group mode with native WordPress display
 
 0.0.16
 - New Olympus components compatibility
 - Change repository to be a part of Dionysos fields
-
-0.0.15
-- ADD: new display mode
 
 ## Contributing
 
