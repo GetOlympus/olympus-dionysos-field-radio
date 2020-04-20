@@ -27,10 +27,8 @@
                     <label for="{{ id }}">
                         {% if mode in ['image', 'image-block'] %}
                             <img src="{{ option.image }}" alt="" />
-                            <span>
-                                <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
-                                {{ option.label|raw }}
-                            </span>
+                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                            {{ option.label|raw }}
                         {% else %}
                             <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
                             {{ option|raw }}
