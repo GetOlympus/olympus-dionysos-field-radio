@@ -4,13 +4,11 @@
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olz-field radio {{ mode }}">
+    <div class="dionysos-field radio {{ mode }}">
         <input type="hidden" name="{{ name }}" value="" />
 
         {% if options %}
             {% set num = 0 %}
-            {% set square = multiple ? '[]' : '' %}
-            {% set type = multiple ? 'checkbox' : 'radio' %}
 
             {{ mode == 'group' ? '<div class="group-labels">' : '' }}
 
@@ -20,17 +18,17 @@
 
                 {% if mode == 'group' %}
                     <div>
-                        <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                        <input type="radio" name="{{ name }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
                         <label for="{{ id }}">{{ option|raw }}</label>
                     </div>
                 {% else %}
                     <label for="{{ id }}">
                         {% if mode in ['image', 'image-block'] %}
-                            <img src="{{ option.image }}" alt="" />
-                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                            <img src="{{ option.image }}" alt="{{ k }}" />
+                            <input type="radio" name="{{ name }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
                             {{ option.label|raw }}
                         {% else %}
-                            <input type="{{ type }}" name="{{ name ~ square }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
+                            <input type="radio" name="{{ name }}" id="{{ id }}" value="{{ k }}"{{ selected }} />
                             {{ option|raw }}
                         {% endif %}
                     </label>
