@@ -39,12 +39,11 @@ class Radio extends Field
     protected function getDefaults() : array
     {
         return [
-            'title' => parent::t('radio.title', $this->textdomain),
-            'default' => '',
+            'title'       => parent::t('radio.title', $this->textdomain),
+            'default'     => '',
             'description' => '',
-            'mode' => '',
-            'multiple' => false,
-            'options' => [],
+            'mode'        => '',
+            'options'     => [],
 
             // texts
             't_no_options' => parent::t('radio.errors.no_options', $this->textdomain),
@@ -68,7 +67,7 @@ class Radio extends Field
         $vars = $contents;
 
         // Update value
-        $vars['value'] = !is_array($value) ? [$value] : $value;
+        $vars['value'] = $value;
 
         // Mode
         $vars['mode'] = isset($vars['mode']) ? $vars['mode'] : '';

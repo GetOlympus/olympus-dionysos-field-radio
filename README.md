@@ -25,13 +25,11 @@ composer require getolympus/olympus-dionysos-field-radio
 Use the following lines to add a `radio field` in your **WordPress** admin pages or custom post type meta fields:
 
 ```php
-// Uniq choice version
 return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
     'title'       => 'Select a Minion that you may know',
     'default'     => 'kevin',
     'description' => 'A very important question! Pay attention to it ;)',
     'mode'        => 'default',
-    'multiple'    => false,
     'options'     => [
         'kevin' => 'Kevin',
         'mel'   => 'Mel',
@@ -47,35 +45,7 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 ]);
 ```
 
-```php
-// Multiple choice version
-return \GetOlympus\Dionysos\Field\Radio::build('my_checkbox_field_id', [
-    'title'       => 'What are your preferred personas?',
-    'default'     => ['minions', 'lapinscretins'],
-    'description' => 'The White House needs your feedback asap!',
-    'mode'        => 'default',
-    'multiple'    => true,
-    'options'     => [
-        'minions'       => 'The Minions',
-        'lapinscretins' => 'The Lapins Crétins',
-        'marvel'        => 'All Marvel Superheroes',
-        'franklin'      => 'Franklin (everything is possible)',
-        'spongebob'     => 'Spongebob (nothing to say... Love it!)',
-    ],
-
-    /**
-     * Texts definition
-     * @see the `Texts definition` section below
-     */
-    't_no_options' => 'The field does no have any options.',
-]);
-```
-
 ## Variables definition
-
-The variables definition depends on `multiple` value:
-- set to `false`, a uniq string value is stored in Database
-- set to `true`, an array of key values is stored in Database
 
 The field display depends on `mode` value:
 - set to `default` (or `inline`), labels options will be displayed on the same line, as an `inline-block` display
@@ -89,23 +59,10 @@ The field display depends on `mode` value:
 | Variable      | Type    | Default value if not set | Accepted values |
 | ------------- | ------- | ------------------------ | --------------- |
 | `title`       | String  | `'Radio button'` | *empty* |
+| `default`     | String  | *empty string* | One of the options keys |
 | `description` | String  | *empty* | *empty* |
 | `mode`        | String  | `default` | see [Variables definition](#variables-definition) |
 | `options`     | Array   | *empty* | Array with a key/value options |
-
-### Uniq choice
-
-| Variable      | Type    | Default value if not set | Accepted values |
-| ------------- | ------- | ------------------------ | --------------- |
-| `default`     | String  | *empty string* | One of the options keys |
-| `multiple`    | Boolean | `false` | *nothing else* |
-
-### Multiple choices
-
-| Variable      | Type    | Default value if not set | Accepted values |
-| ------------- | ------- | ------------------------ | --------------- |
-| `default`     | Array   | *empty array* | Array with options keys |
-| `multiple`    | Boolean | `true` | *nothing else* |
 
 ## Texts definition
 
@@ -115,7 +72,7 @@ The field display depends on `mode` value:
 
 ## Retrive data
 
-Retrieve your value from Database with a simple `get_option('my_radio_field_id', '')` or `get_option('my_checkbox_field_id', [])` (see [WordPress reference][getoption-url]):
+Retrieve your value from Database with a simple `get_option('my_radio_field_id', '')` (see [WordPress reference][getoption-url]):
 
 ```php
 // Get radio from Database
@@ -123,20 +80,6 @@ $radio = get_option('my_radio_field_id', '');
 
 // Display value
 echo '<h2><b>'.$radio.'</b>, master of the ceremony</h2>';
-
-// Get checkbox from Database
-$checkbox = get_option('my_checkbox_field_id', []);
-
-if (!empty($checkbox)) {
-    echo '<p>And the nominees are:</p>';
-    echo '<ul>';
-
-    foreach ($checkbox as $value) {
-        echo '<li>'.$value.'</li>'; // Will display key item options!
-    }
-
-    echo '</ul>';
-}
 ```
 
 ## Image mode
@@ -160,7 +103,6 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
     'default'     => 'dave',
     'description' => 'A very important question! Pay attention to it ;)',
     'mode'        => 'image',
-    'multiple'    => false,
     'options'     => [
         'kevin' => [
             'label' => 'Kevin',
@@ -190,15 +132,14 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
+0.0.19
+- Remove Checkbox mode from field
+
 0.0.18
 - Fix image label display for small images
 
 0.0.17
 - Add group mode with native WordPress display
-
-0.0.16
-- New Olympus components compatibility
-- Change repository to be a part of Dionysos fields
 
 ## Contributing
 
