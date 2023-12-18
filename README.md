@@ -1,4 +1,12 @@
+<img src="https://github.com/GetOlympus/olympus-dionysos-field-radio/blob/master/assets/field-radio.png" align="left" />
+
 # Dionysos Radio Field
+
+[![Olympus Component][olympus-image]][olympus-url]
+[![CodeFactor Grade][codefactor-image]][codefactor-url]
+[![Packagist Version][packagist-image]][packagist-url]
+[![MIT][license-image]][license-blob]
+
 > This component is a part of the **Olympus Dionysos fields** for **WordPress**.
 
 ```sh
@@ -7,16 +15,9 @@ composer require getolympus/olympus-dionysos-field-radio
 
 ---
 
-[![Olympus Component][olympus-image]][olympus-url]
-[![CodeFactor Grade][codefactor-image]][codefactor-url]
-[![Packagist Version][packagist-image]][packagist-url]
-[![MIT][license-image]][license-blob]
+## Table of contents
 
----
-
-<p align="center">
-    <img src="https://github.com/GetOlympus/olympus-dionysos-field-radio/blob/master/assets/field-radio-64.png" />
-</p>
+[Field initialization](#field-initialization) • [Variables definition](#variables-definition) • [Texts definition](#texts-definition) • [Retrive data](#retrive-data) • [Release history](#release-history) • [Contributing](#contributing)
 
 ---
 
@@ -47,14 +48,12 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 
 ## Variables definition
 
-The field display depends on `mode` value:
+The display depends on the `mode` value:
 -  set to `default` (or `inline`), labels options will be displayed on the same line, as an `inline-block` display
 -  set to `block`, labels options will be displayed each per line, as a `block` display
 -  set to `image`, labels options will be displayed as `default` mode, with images and overlay text label
 -  set to `image-block`, labels options will be displayed as `block` mode, with images and overlay text label
 -  set to `group`, labels options will be displayed as a simple but efficient group of choices
-
-### In all cases
 
 | Variable      | Type    | Default value if not set | Accepted values |
 | ------------- | ------- | ------------------------ | --------------- |
@@ -82,7 +81,7 @@ $radio = get_option('my_radio_field_id', '');
 echo '<h2><b>'.$radio.'</b>, master of the ceremony</h2>';
 ```
 
-## Image mode
+### Image mode
 
 To display images instead of simple labels, set the `mode` to `image` and build the field's options as follow:
 
@@ -132,22 +131,19 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 
 ## Release History
 
-0.0.19
--  Remove Checkbox mode from field
-
-0.0.18
--  Fix image label display for small images
-
-0.0.17
--  Add group mode with native WordPress display
+| Version | Note |
+| :------ | :--- |
+| 0.0.19  | Remove Checkbox mode from field |
+| 0.0.18  | Fix image label display for small images |
+| 0.0.17  | Add group mode with native WordPress display |
 
 ## Contributing
 
-1.  Fork it (<https://github.com/GetOlympus/olympus-dionysos-field-radio/fork>)
-2.  Create your feature branch (`git checkout -b feature/fooBar`)
-3.  Commit your changes (`git commit -am 'Add some fooBar'`)
-4.  Push to the branch (`git push origin feature/fooBar`)
-5.  Create a new Pull Request
+1. Fork it (<https://github.com/GetOlympus/olympus-dionysos-field-radio/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
 
 ---
 
