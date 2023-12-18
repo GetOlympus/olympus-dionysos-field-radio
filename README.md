@@ -48,11 +48,11 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 ## Variables definition
 
 The field display depends on `mode` value:
-- set to `default` (or `inline`), labels options will be displayed on the same line, as an `inline-block` display
-- set to `block`, labels options will be displayed each per line, as a `block` display
-- set to `image`, labels options will be displayed as `default` mode, with images and overlay text label
-- set to `image-block`, labels options will be displayed as `block` mode, with images and overlay text label
-- set to `group`, labels options will be displayed as a simple but efficient group of choices
+-  set to `default` (or `inline`), labels options will be displayed on the same line, as an `inline-block` display
+-  set to `block`, labels options will be displayed each per line, as a `block` display
+-  set to `image`, labels options will be displayed as `default` mode, with images and overlay text label
+-  set to `image-block`, labels options will be displayed as `block` mode, with images and overlay text label
+-  set to `group`, labels options will be displayed as a simple but efficient group of choices
 
 ### In all cases
 
@@ -133,21 +133,21 @@ return \GetOlympus\Dionysos\Field\Radio::build('my_radio_field_id', [
 ## Release History
 
 0.0.19
-- Remove Checkbox mode from field
+-  Remove Checkbox mode from field
 
 0.0.18
-- Fix image label display for small images
+-  Fix image label display for small images
 
 0.0.17
-- Add group mode with native WordPress display
+-  Add group mode with native WordPress display
 
 ## Contributing
 
-1. Fork it (<https://github.com/GetOlympus/olympus-dionysos-field-radio/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+1.  Fork it (<https://github.com/GetOlympus/olympus-dionysos-field-radio/fork>)
+2.  Create your feature branch (`git checkout -b feature/fooBar`)
+3.  Commit your changes (`git commit -am 'Add some fooBar'`)
+4.  Push to the branch (`git push origin feature/fooBar`)
+5.  Create a new Pull Request
 
 ---
 
